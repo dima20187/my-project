@@ -1,21 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { Provider } from 'react-redux';
+// import { View } from 'react-native-web';
+import store from './src/store';
+import Navigation from './src/navigation/NavigationComponent';
 
-export default function App() {
+// function Component() {
+//   return <View />;
+// }
+
+function App() {
+  // const [isLoadedApp, setIsLoadedApp] = useState(false);
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      {/* {!isLoadedApp ? <Component /> : <Navigation />} */}
+      <Navigation />
+    </Provider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
